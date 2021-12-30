@@ -21,6 +21,14 @@ function Form() {
         e.preventDefault()
 
         dispatch(createPost(postData))
+
+        setPostData({
+            ...postData, creator: '',
+            title: '',
+            message: '',
+            tags: '',
+            selectedFile: ''
+        })
     }
     const clear = () => {
 
@@ -29,7 +37,7 @@ function Form() {
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.form} ${classes.root}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating a Memory</Typography>
+                <Typography variant="h6">Create a Memory</Typography>
                 <TextField name="creator"
                     variant="outlined"
                     label="Creator"
